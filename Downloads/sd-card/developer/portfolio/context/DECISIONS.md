@@ -46,4 +46,11 @@ This file stores durable decisions, not assumptions disguised as facts. Add an I
 
 ## App-specific technical decisions
 
-No concrete stack/provider/schema/hosting/payment/realtime/storage decision has been confirmed in the keeper source materials. Add decisions here only after repository evidence or an explicit owner decision exists. Link detailed architecture proposals to `docs/ARCHITECTURE_DECISIONS.md` when created.
+No external provider, deployment host, or domain has been selected. Add decisions only after repository evidence or an explicit owner choice exists.
+
+## D-007 — Keep the portfolio static and dependency-free
+
+- **Status:** Adopted for the current portfolio implementation (2026-10-17)
+- **Decision:** Build the present portfolio with semantic HTML, CSS, and small browser-side JavaScript; do not add a framework or backend.
+- **Rationale:** The current scope is a public portfolio with anchor navigation, bilingual copy, and direct email contact. The opened workspace had no application stack or server integration to preserve.
+- **Consequences:** Preview is available through a static file server; hosting remains an owner decision. A future contact form or other server-dependent feature needs a separate architecture/security decision.

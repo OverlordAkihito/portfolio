@@ -1,10 +1,39 @@
-# Context Keeper Kit for Codex and Other Coding AIs
+# Jenren Renz B. Datan Portfolio
+
+This workspace now contains a lightweight, bilingual developer portfolio and the context-keeper materials used to maintain it. The site uses plain HTML, CSS, and JavaScript with no application dependencies or build step.
+
+## Run the portfolio locally
+
+From this folder, start any static file server. With Python 3:
+
+```bash
+python -m http.server 4173
+```
+
+Then open `http://localhost:4173`. You can also open `index.html` directly, though clipboard behavior works best from localhost or a deployed HTTPS site.
+
+## Portfolio files
+
+- `index.html` — semantic page structure and portfolio copy.
+- `styles.css` — color tokens, layouts, responsive styling, and reduced-motion treatment.
+- `app.js` — English/Filipino switching, responsive navigation, and email copying.
+
+The portfolio content is based on the supplied profile notes. The LMS is described only as a functional learning management system made with AI assistance; the source notes do not provide its feature list, public demo, code link, or screenshots.
+
+## Context keeper
+
+The `context/` and `scripts/` folders retain the repository handoff, requirements, architecture/security notes, and metadata snapshot tools. The audit in `docs/REPOSITORY_AUDIT.md` records the current portfolio implementation. This section below describes the context-keeper tools and their use.
+
+---
+
+## Context Keeper Kit for Codex and Other Coding AIs
 
 **Version:** 1.0.0  
 **Purpose:** Preserve accurate project context across AI sessions, make meaningful changes traceable, and help the next agent resume from repository evidence instead of chat-memory guesses.
 
 ## What is included
 
+- `index.html`, `styles.css`, and `app.js` — the static bilingual portfolio website.
 - `AGENTS.md` — canonical project instructions for coding agents.
 - `context/SESSION_HANDOFF.md` — the next-session starting point.
 - `context/PROJECT_OVERVIEW.md` — product purpose and boundaries.
@@ -61,16 +90,16 @@ The sync script automatically captures repository metadata when run: Git branch/
 
 The watcher is an optional foreground process and must be explicitly started; no OS-level background service is installed or assumed to persist across sessions. Both tools track repository metadata, not whether a feature is functionally correct. Semantic memory—why a change was made, requirements status, architecture decisions, risks, and next steps—must still be updated by the agent from evidence. A file watcher cannot understand code behavior.
 
-## First-run limitation
+## Current repository state
 
-This package was built from the provided prompt-completeness instructions, development guide, and prior context-keeper note. No application source repository was included with those materials. Accordingly, the included feature list is a **product brief**, not a claim about what the application currently implements. The first-run audit must establish that from the real repository.
+The portfolio is implemented as a static site. The LMS story is limited to the facts in the supplied profile notes; its detailed functions, technology stack, images, and public link remain unknown. See `docs/REPOSITORY_AUDIT.md` and `context/SESSION_HANDOFF.md` for current evidence and remaining content gaps.
 
-## Suggested workflow
+## Suggested portfolio workflow
 
-- First setup: audit → architecture decision → dependency-aware roadmap.
-- Feature implementation: use a focused task prompt with explicit acceptance criteria; inspect current code first.
-- Release: use the release/security checklist in `context/DEVELOPMENT_SEQUENCE.md` and verify the actual test/build results.
-- After major changes: reconcile the roadmap and context files against code and tests.
+- Keep project content factual; confirm new experience, tools, metrics, and links before publishing them.
+- Inspect the page at desktop and mobile widths after visual changes.
+- Choose hosting/domain with the owner before deploying.
+- Update the handoff, audit, and generated snapshot after meaningful changes.
 
 ## Status vocabulary
 

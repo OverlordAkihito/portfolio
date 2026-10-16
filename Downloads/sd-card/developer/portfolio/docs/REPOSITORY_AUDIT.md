@@ -1,96 +1,79 @@
 # Repository Audit
 
 **Audit date:** 2026-10-17 (Asia/Manila)  
-**Scope:** The current workspace root, `C:\Users\Jenren B. Datan\Downloads\sd-card\developer\portfolio`. This is an audit of the material actually present here; it does not establish the state of a separate application checkout.
+**Current scope:** Static portfolio implementation in `C:\Users\Jenren B. Datan\Downloads\sd-card\developer\portfolio`.  
+**History:** The first-run audit found only the context-keeper kit in this folder. This portfolio was added after the user supplied profile notes and a UI/UX prompt. The prior discovery remains accurate as a historical snapshot, not as a description of the current contents.
 
 ## Executive finding
 
-This workspace contains a documentation/context-keeper kit, not the social/community application's source repository described by the product brief. The only executable project files found are three Python context-maintenance scripts. There is no application implementation to trace, so all application feature states, runtime architecture, security posture, and application test/build/lint results are **Unable to verify**. Do not interpret that as proof the application lacks those features.
+The repository now contains a dependency-free, single-page personal portfolio built with HTML, CSS, and browser-side JavaScript, alongside the original context-keeper files. It presents the supplied profile details and one functional LMS project, offers English/Filipino switching, responsive navigation, and email contact. The site has no backend, database, authentication, analytics, payment, or hosting integration. The LMS itself is not part of this repository and its deeper capabilities cannot be verified here.
 
-## Confirmed repository contents
+## Stack and structure
 
-| Area | Finding | Evidence |
+| Area | Confirmed finding | Evidence |
 |---|---|---|
-| Languages and formats | Python scripts plus Markdown and text guidance; no application language was detected. | `scripts/context_sync.py`, `scripts/context_validate.py`, `scripts/context_watch.py`; root file inventory. |
-| Framework/runtime | No app framework, server, or app runtime configuration was found. The Python utilities use the standard library. | All three `scripts/*.py`; no `package.json`, `pyproject.toml`, `requirements.txt`, `go.mod`, `Cargo.toml`, Maven/Gradle manifest, or framework config in the workspace inventory. |
-| Entry points | Context utility entry points are each script's `main()`; no application entry point was found. | `scripts/context_sync.py:main`, `scripts/context_validate.py:main`, `scripts/context_watch.py:main`. |
-| Folders | `context/` holds keeper records; `scripts/` holds snapshot/validation/watcher utilities; `docs/` now holds this audit. | Root inventory; `scripts/context_sync.py:root_entries`. |
-| Backend, database, storage, auth | No app backend, persistence layer, schema/migrations, authentication provider, or authorization boundary was found. | Complete workspace file inventory; no application source/configuration files are present. |
-| Tests and build tooling | No application tests, test configuration, build scripts, or lint/type-check configuration was found. | Complete workspace file inventory. |
-| Git | This workspace has no `.git` directory and Git reported `fatal: cannot change to 'C:/Users/Jenren B. Datan'` for the supplied path. No branch or commit can be established. | `Test-Path .git` returned `False`; bundled Git `rev-parse --show-toplevel` exit 128. |
-| Context keeper | Snapshot sync and structural validation now pass. Validation initially identified the missing `NEXT_SESSION_PROMPT.txt`; this documented keeper template was added during initialization. | `scripts/context_sync.py`; `scripts/context_validate.py`; `NEXT_SESSION_PROMPT.txt`; observed command results below. |
+| Languages | HTML, CSS, JavaScript for the site; Python for context scripts; Markdown/text for documentation. | `index.html`, `styles.css`, `app.js`, `scripts/*.py`. |
+| Frameworks/build | No framework, package manifest, bundler, or build step. | Root inventory has no `package.json` or app build config. |
+| Entry points | `index.html`; it loads `styles.css` and deferred `app.js`. | `<link rel="stylesheet">`, `<script defer>` in `index.html`. |
+| Layout | One-page portfolio: hero, intro, selected work, development direction, about, contact, footer. | `index.html` sections `#main`, `#work`, `#about`, `#contact`. |
+| Styling | CSS custom properties, responsive breakpoints, focus treatment, reduced-motion preferences. | `styles.css`: `:root`, `@media (max-width: 1000px)`, `@media (max-width: 700px)`, `@media (prefers-reduced-motion: reduce)`. |
+| Browser behavior | Bilingual text/title/metadata, local language preference, responsive menu open/close/Escape, email copy with fallback. | `app.js`: `setLanguage`, `setMenu`, `copyButton` handler. |
+| Data/backend/auth | No application server, API, database, schema, sign-in, or authorization boundary. Language preference is the only persisted site value, in local storage. | Complete project inventory; `app.js` accesses only `localStorage` for language. |
+| External assets/services | No remote fonts, image assets, tracking, analytics, or integration. Email actions use `mailto:`. | `index.html`, `styles.css`, `app.js`. |
+| Git | No `.git` directory is present; branch/commit and clean-diff status cannot be determined. | `Test-Path .git` returned false in the workspace. |
 
-The keeper's product purpose and feature list in `context/PROJECT_OVERVIEW.md` and `context/REQUIREMENTS.md` are goals supplied with the kit. They are not evidence of application implementation.
+## Portfolio feature inventory
 
-## Application feature inventory
-
-Statuses below describe what this workspace allows the audit to verify, not a claim about a separate application. **Unable to verify** means the relevant application code/runtime is not present here.
-
-| Requirement | Status | Evidence and gap |
+| Feature | Status | Evidence and limits |
 |---|---|---|
-| REQ-01 Identity and sessions | Unable to verify | No application auth or session code/configuration in this workspace. |
-| REQ-02 Multi-user data isolation | Unable to verify | No application data layer or trusted service boundary found. |
-| REQ-03 Roles and account protection | Unable to verify | No application identity/role implementation found. |
-| REQ-04 Account management | Unable to verify | No application UI/API/data implementation found. |
-| REQ-05 Public user ID and people search | Unable to verify | No application implementation found. |
-| REQ-06 User profiles | Unable to verify | No application implementation found. |
-| REQ-07 Profile photo tools | Unable to verify | No application implementation found. |
-| REQ-08 Social interactions | Unable to verify | No application implementation found. |
-| REQ-09 QR profile links | Unable to verify | No application implementation found. |
-| REQ-10 Chat modes | Unable to verify | No application UI, transport, or authorization implementation found. |
-| REQ-11 Location privacy / nearby chat | Unable to verify | No application location handling or policy implementation found. |
-| REQ-12 Reports and moderation | Unable to verify | No application implementation found. |
-| REQ-13 Navigation and collapsible cards | Unable to verify | No application UI implementation found. |
-| REQ-14 Deletion, trash and restore | Unable to verify | No application data lifecycle implementation found. |
-| REQ-15 Subscription-state visibility | Unable to verify | No application entitlement/state implementation found. |
-| REQ-16 Payment provider | Unable to verify (optional) | No provider decision or integration configuration found. |
-| REQ-17 Backup and recovery | Unable to verify | No application backup/data implementation found. |
-| REQ-18 Reliability and UX states | Unable to verify | No application flows or tests found. |
-| REQ-19 Testing and release | Unable to verify | No application test/build/lint/release setup found. |
-| REQ-20 Setup and deployment | Unable to verify | No application setup/deployment configuration found. |
-| REQ-21 Navigation/context continuity | Partial (keeper only) | Keeper docs/scripts/template are present and structural validation passes. Adoption in the application repository is unknown. |
+| Identity/summary and contact | Implemented | `index.html` names Jenren “Renz” B. Datan, student status, broad location, development direction, and provided contact method. |
+| Featured LMS project | Partial | `index.html` accurately identifies a functional LMS made with AI assistance. The LMS code, feature details, tech stack, demo/source link, and screenshots were not provided. |
+| English/Filipino switching | Implemented | `app.js:setLanguage` updates tagged page copy, document language/title/metadata, accessible names, and local preference. Browser interaction verified both directions. |
+| Responsive navigation | Implemented | `app.js:setMenu` supports open/close, link selection, Escape, and resize; `styles.css` provides the mobile menu treatment. Browser interaction verified at 390px. |
+| Responsive layout | Implemented | Headless Edge reported no horizontal overflow at 320, 390, 768, and 1440 CSS-pixel widths. Full-page desktop and mobile screenshots were visually inspected. |
+| Email link and copy | Partial | `mailto:` links and clipboard/fallback code exist. The copy action itself was not clicked during verification to avoid overwriting the user's clipboard. |
+| Accessibility | Partial | Semantic landmarks/headings, skip link, focus styles, menu labels, live copy feedback, and reduced-motion CSS exist. No formal WCAG or screen-reader audit was performed. |
+| Hosting/deployment | Unable to verify | No production host, domain, or deployment configuration was supplied or used. |
 
-No application capability is labeled Implemented, Partial, UI-only, or Missing because no application source was available to establish any of those states.
+## Security and reliability findings
 
-## Security and reliability risks
-
-These are audit-scope risks and observed keeper issues, not confirmed application vulnerabilities.
-
-| Rank | Finding | Impact / evidence | Recommendation |
+| Rank | Finding | Evidence / impact | Recommendation |
 |---|---|---|---|
-| High | Application security and reliability are unassessed. | No app source, runtime configuration, or environment-specific deployment evidence is in this workspace, so identity, authorization, isolation, secrets handling, persistence, and recovery cannot be traced. | Run this audit from the actual application root before architecture or feature decisions. |
-| Medium — resolved | Context-kit template was missing. | Initial validation reported `MISSING: NEXT_SESSION_PROMPT.txt`; the file was listed by `scripts/context_validate.py:REQUIRED` and README but absent. A handoff template has now been added; validation passes. | Keep the new template aligned with `AGENTS.md`; no application behavior was changed. |
-| Low | Repository history/status is unavailable. | No `.git` directory is present and Git could not resolve the supplied path; this prevents change provenance and commit comparison. | Open/install the keeper in the intended application Git root, or initialize/version the keeper separately if that is the intended project. |
+| Low | Public contact email and city are visible in the static page. | This is expected for the portfolio and follows the supplied profile notes; no additional personal details were included. | Keep the content intentional; avoid adding unnecessary personal data or third-party tracking. |
+| Low | No project case-study proof beyond the short LMS description is available. | The portfolio does not claim specific tools, metrics, clients, or detailed features. | Add only owner-confirmed project facts, screenshots, or links. |
+| Informational | No backend exists. | Current site needs no private data or server-only operation. | Revisit trust boundaries before adding forms, accounts, analytics, or other data collection. |
 
-**Critical:** No specific critical vulnerability can be established from the available files. This is not a security clearance; the application was not available for assessment.
+No critical or high severity application security issue was identified in this static-site scope. This is not a formal security or privacy certification.
 
-## Safe checks and observed results
+## Checks and observed results
 
-| Check | Result | Observed output / limitation |
+| Check | Result | Observed result |
 |---|---|---|
-| `& 'C:\Users\Jenren B. Datan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/context_sync.py` | PASS | Final run updated `context/AUTO_STATE.md`. The system `python` command was unavailable; bundled Python was used. |
-| `& 'C:\Users\Jenren B. Datan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/context_validate.py` | PASS (after initialization fix) | Final run: `CONTEXT VALIDATION PASS: 18 required files and key sections found.` The initial run failed because `NEXT_SESSION_PROMPT.txt` was missing; after adding the documented handoff template, all required-file/section checks passed. |
-| Application tests | NOT RUN | No application source or test suite exists in this workspace. |
-| Application build | NOT RUN | No application build manifest/tooling exists in this workspace. |
-| Application lint/type check | NOT RUN | No application lint/type-check configuration exists in this workspace. |
-| Git status / root discovery | FAIL / unavailable | No `.git` directory; bundled Git `rev-parse --show-toplevel` exited 128 with `fatal: cannot change to 'C:/Users/Jenren B. Datan'`. |
+| `& 'C:\Users\Jenren B. Datan\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' --check app.js` | PASS | No JavaScript syntax errors. |
+| Bundled Python `HTMLParser` over `index.html` | PASS | `& 'C:\Users\Jenren B. Datan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -c "from html.parser import HTMLParser; from pathlib import Path; p=HTMLParser(convert_charrefs=True); p.feed(Path('index.html').read_text(encoding='utf-8')); p.close(); print('HTML parser PASS')"` completed without errors. This is a syntax smoke check, not a full HTML conformance validator. |
+| Existing Microsoft Edge through bundled Playwright | PASS | At 1440, 768, 390, and 320 CSS px: document/body width matched viewport. Bilingual switch, mobile menu open/close, Escape close, and page navigation passed; no page errors. |
+| Visual review | PASS | Local CUA preview inspected; generated full-page desktop (1440px) and mobile (390px) screenshots were reviewed. A mobile contact-decoration overlap was corrected after review. |
+| Selected color-contrast spot check | PASS | Calculated selected token pairs: muted text vs paper/paper-bright/citron 5.46:1 / 6.01:1 / 4.92:1; citron text vs ink 13.86:1; focus accent vs ink/paper/citron 3.04:1 / 5.06:1 / 4.56:1. This is not a full contrast or WCAG audit. |
+| Context snapshot sync | PASS | `scripts/context_sync.py` ran after documentation updates; see `context/AUTO_STATE.md`. |
+| Context structural validation | PASS | Final `scripts/context_validate.py` run found all required files and headings after updating its checks for portfolio-specific architecture/privacy records. |
+| Production build/deployment | NOT RUN | No build system or deployment target is configured. |
+| DOCX visual rendering | NOT RUN successfully | The attached design prompt text was extracted (188 paragraphs); packaged `render_docx.py` could not run because LibreOffice `soffice.exe` is unavailable. This did not block implementation from the extracted text. |
 
-The context sync and validator are safe, dependency-free keeper checks. No dependencies were installed and no application behavior was run or changed.
+The site has no dedicated unit-test suite, lint configuration, or build tool. No package was installed.
 
 ## Dependencies and configuration
 
-- Keeper scripts require Python 3 and use only the Python standard library (`argparse`, `hashlib`, `os`, `pathlib`, `subprocess`, `sys`, `datetime`).
-- The system `python` command was not available in this execution environment. The bundled Python executable ran the scripts successfully (sync) and produced the validator failure described above.
-- No application dependencies, environment variable names, provider configuration, or deployment requirements can be established from this workspace.
+- The site itself has no package dependencies or environment variables.
+- Local preview can use `python -m http.server 4173`; Python is a preview option, not a runtime requirement after static hosting.
+- Production hosting/domain remain unconfigured.
 
-## Unresolved unknowns
+## Remaining content unknowns
 
-1. The location and current contents of the actual application repository.
-2. Its language/framework, runtime, backend, persistence/schema, identity provider, trusted authorization boundaries, and deployment target.
-3. The implementation state of every application requirement and the relevant test/build/lint commands.
-4. Application-specific secrets/configuration names, migrations, backup/recovery behavior, and external services.
-5. Whether this keeper folder was intended to be a standalone project or was opened instead of the application root.
+1. LMS name, exact functions, technology stack, screenshots, demo, and source link.
+2. Additional projects, education details, verified skills, resume, and professional social links.
+3. Production domain and hosting choice.
+4. Formal accessibility review and copy-action behavior in the target deployment/browser.
 
 ## Recommended next action
 
-Open the actual application repository root that contains its source, manifests, and configuration. Re-run the source-backed audit there. Only after that audit can an architecture decision and dependency-aware implementation roadmap be based on the real application rather than guesses.
+Ask Renz for verified LMS details or a demo/source link before expanding the case study. Choose hosting/domain only when ready to publish; deployment was not performed.

@@ -1,39 +1,29 @@
 # Project Overview
 
-## Audited workspace identity (2026-10-17)
-
-The current workspace contains the context-keeper documentation and Python maintenance scripts, not the application source described below. No app stack, runtime, backend, persistence, authentication provider, or feature implementation has been established. See `../docs/REPOSITORY_AUDIT.md`. The product purpose below remains the intended brief, not a description of verified running software.
-
 ## Purpose
 
-Build and maintain a multi-user social/community application with user profiles and relationships, messaging, account administration, moderation, privacy controls, subscription-state visibility, and robust data recovery.
+This repository contains Jenren “Renz” B. Datan's personal developer portfolio. It introduces him as a student from Olongapo City, Philippines, presents his direction toward full-stack web development, features his functional LMS project with transparent AI assistance, and gives visitors a direct way to contact him.
 
-## Intended user experiences
+## Intended experience
 
-- **Client/user experience:** register or sign in, manage a profile, discover users through a stable public-facing ID/search, interact through connections/likes, use the in-scope chat modes, control profile/location/privacy visibility, use a QR profile link, and manage eligible data/deletion preferences.
-- **Admin/moderation experience:** authorized account management, report review, moderation actions, appropriate subscription-state visibility, auditable privileged operations, and supported backup/recovery workflows.
-- **Owner/developer experience:** reliable setup, tests, explicit configuration requirements, documented architecture, safe migrations, practical handoff, and clear release gates.
+- A memorable, editorial-style landing page with clear navigation and a focused first impression.
+- A factual featured-project story that does not invent project details, tools, metrics, endorsements, or capabilities.
+- English and Filipino copy, a responsive mobile menu, accessible keyboard/focus behavior, and reduced-motion support.
+- Direct email contact with a working mail link and copy action.
 
-These are goals, not a confirmation that any screen, API, data model, or secure workflow exists.
+These are portfolio requirements, not claims of formal accessibility certification, deployment, or employer endorsement.
 
-## Historical project description
+## Current project facts
 
-The development guide says the app had been described as built with HTML and JavaScript. It explicitly warns the coding agent not to assume that this description fully represents the current repository. Verify the actual stack from repository files.
+- The site is a dependency-free static frontend made from `index.html`, `styles.css`, and `app.js`.
+- The supplied profile notes establish the displayed name, student status, Olongapo City location, full-stack web-development direction, an LMS built with AI assistance, and a contact email.
+- The LMS details, technologies, repository/demo URL, screenshots, education history, and additional project entries have not been supplied. The site avoids inventing them.
+- There is no site backend, authentication, analytics, external asset service, or deployment configuration in this repository.
 
 ## Product principles
 
-1. Multi-user isolation and trusted authorization must be real; hiding a control in the browser is not security.
-2. Keep the smallest coherent architecture capable of the required features; preserve working behavior and avoid duplicate systems.
-3. Privacy is a product behavior: public/private settings and consent must affect actual data returned and actions allowed.
-4. Security-sensitive capabilities require evidence-based validation, not UI-only completion claims.
-5. Unconfigured provider integrations must be labeled unconfigured; do not fabricate connectivity or successful payments/backups.
-6. Feature implementation should follow prerequisites and the real repository's state, not a blind checklist.
-7. Each meaningful task should leave enough accurate context for a new AI session to continue safely.
-
-## Out of scope unless explicitly added
-
-Do not silently select payment, hosting, identity, database, realtime chat, or external backup providers. Do not infer business rules—such as whether “add people” means follow, friend, or request—from vague labels; find existing requirements or document the chosen, justified model.
-
-## Evidence status
-
-At keeper creation, no application source repository was supplied. The actual implementation, stack, and feature status remain unknown until the first-run audit.
+1. Make the portfolio distinctive while keeping the content easy to scan and the main contact action clear.
+2. Keep personal and professional claims within the supplied facts; mark direction and interests as aspirations rather than proven employment history.
+3. Keep the site fast and maintainable with semantic HTML, CSS tokens, responsive layouts, and minimal JavaScript.
+4. Preserve privacy by showing only professional information needed for the portfolio.
+5. Report browser, accessibility, and test evidence accurately; a visual review is not a formal WCAG audit.
