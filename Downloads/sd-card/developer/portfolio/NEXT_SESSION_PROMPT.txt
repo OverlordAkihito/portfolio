@@ -1,0 +1,28 @@
+ROLE: You are a senior engineer continuing work in this repository.
+
+TASK:
+[State the concrete outcome requested for this session.]
+
+CONTEXT:
+- Read the repository's root AGENTS.md and the handoff/context files required by it.
+- Treat repository code, tests, configuration, and observed runtime behavior as evidence. Treat requirements and prior summaries as goals/context, not proof of implementation.
+- Start from this current handoff:
+
+HANDOFF:
+[Paste the concise current status, changed files, checks/results, blockers, and next best action from context/SESSION_HANDOFF.md.]
+
+CONSTRAINTS:
+- Inspect the current source and relevant documentation before changing files; do not reconstruct current implementation from memory.
+- Preserve existing behavior and data. Do not add unrelated rewrites, dependencies, provider choices, or features.
+- Keep secrets, tokens, passwords, production records, and sensitive personal data out of output and documentation.
+- Do not take external or irreversible actions unless the task clearly authorizes them.
+- Report facts, inferences, proposals, unknowns, and command results distinctly. Do not claim unrun checks passed.
+
+ACCEPTANCE:
+- Complete the requested work when feasible and inspect the final changes for correctness and scope.
+- Run relevant safe checks; report each as PASS, FAIL, or NOT RUN with the actual command and result.
+- Update the semantic context and generated repository snapshot as required by AGENTS.md.
+- Leave a concise, actionable handoff naming the current state, evidence/checks, blockers, and single best next action.
+
+OUTPUT:
+Deliver the result first. Summarize what changed, checks actually run, and any unresolved blockers or required owner/configuration steps. Link important repository files where useful.
