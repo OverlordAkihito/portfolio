@@ -6,6 +6,7 @@
 - The supplied contact email and city are displayed so visitors can make professional contact. The site uses a `mailto:` action and a local copy-email control.
 - A language choice is stored in browser local storage. It is not a credential or identity record; language switching still works for the current page if storage is unavailable.
 - No age, sex, relationship status, home address, private account, or authentication data is displayed.
+- The Vercel build serves only an explicit allowlist (`index.html`, `styles.css`, `app.js`) from `dist`, keeping repository prompts, agent instructions, and context documents out of the public output. Recheck the allowlist when adding assets.
 
 ## Requirements for future changes
 

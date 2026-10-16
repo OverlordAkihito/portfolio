@@ -2,7 +2,7 @@ const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const root = path.resolve(__dirname);
+const root = path.resolve(__dirname, process.argv.includes("--dist") ? "dist" : ".");
 const host = process.env.HOST || "127.0.0.1";
 const port = Number(process.env.PORT || 4173);
 const contentTypes = {
@@ -55,7 +55,7 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`Portfolio running at http://${host}:${port}`);
+  console.log(`Portfolio${root.endsWith(`${path.sep}dist`) ? " build" : ""} running at http://${host}:${port}`);
 });
 
 server.on("error", (error) => {

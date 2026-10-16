@@ -17,6 +17,7 @@ Use `Implemented`, `Partial`, `UI-only`, `Missing`, or `Unable to verify`. An im
 | PORT-07 | Keep the site static, lightweight, and free of unsupported external-service claims. | Implemented — no app dependencies, backend, analytics, or remote assets; local preference is the only browser-side persistence. |
 | PORT-08 | Provide a simple local launch command for previewing the portfolio. | Implemented — `npm start` and `node serve.js` launch the dependency-free Node static server at `http://127.0.0.1:4173` by default. |
 | PORT-09 | Use distinctive, purposeful motion in the portfolio art and page transitions, while honoring reduced-motion preferences. | Implemented — CSS animates the hero orbital illustration, atmosphere, project diagram, about seal, and contact mark; `app.js` reveals sections on entry when motion is allowed. Headless Edge verified active animations, all reveal targets, and the reduced-motion fallback. |
+| PORT-10 | Prepare a production deployment to Vercel while keeping non-public project context out of the served files. | Implemented and locally verified — `npm run build` creates a `dist` containing only `index.html`, `styles.css`, and `app.js`; `npm run preview` serves those files, with development/context paths returning 404. `vercel.json` points Vercel to that output. Account linking and production deploy are not done. |
 
 ## Deferred content
 

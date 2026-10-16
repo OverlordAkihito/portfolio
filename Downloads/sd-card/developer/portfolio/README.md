@@ -19,7 +19,22 @@ Then open `http://127.0.0.1:4173`. To use a different port, set `PORT` before st
 - `styles.css` — color tokens, responsive styling, ambient backgrounds, animated artwork, scroll-reveal transitions, and reduced-motion treatment.
 - `app.js` — English/Filipino switching, responsive navigation, email copying, and motion-aware reveal behavior.
 - `serve.js` — dependency-free local static file server.
-- `package.json` — `npm start` command; no install step is needed.
+- `scripts/build-static.js` — copies only the public site files into `dist` for deployment.
+- `vercel.json` — build/output settings and response security headers for Vercel.
+- `package.json` — start, build, and built-site preview commands; no install step is needed.
+
+## Build and deploy to Vercel
+
+Build and preview the exact files intended for deployment:
+
+```sh
+npm run build
+npm run preview
+```
+
+The build allowlists only `index.html`, `styles.css`, and `app.js` in `dist`; context notes, prompts, source tools, and the local server are not part of the public output. Vercel is configured in `vercel.json` to use the **Other** framework preset, skip dependency installation, run `npm run build`, and publish `dist`. This follows [Vercel's build configuration](https://vercel.com/docs/builds/configure-a-build) and [`vercel.json` reference](https://vercel.com/docs/project-configuration/vercel-json).
+
+To deploy, import this project directory in the Vercel dashboard and deploy, or link it with the Vercel CLI after signing in (`npx vercel`, then `npx vercel --prod`). The project needs no secrets or environment variables. A Vercel account/login and final production deployment still need to be completed by the owner.
 
 The portfolio content is based on the supplied profile notes. The LMS is described only as a functional learning management system made with AI assistance; the source notes do not provide its feature list, public demo, code link, or screenshots.
 

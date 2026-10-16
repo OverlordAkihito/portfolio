@@ -1,7 +1,7 @@
 # Work State
 
-**Current objective:** Improve the portfolio with distinctive motion while preserving its existing visual direction and reduced-motion support.  
-**Status:** Motion system implemented and browser-checked. Portfolio remains local; publishing is not configured or performed.
+**Current objective:** Prepare the portfolio for a safe Vercel static deployment.  
+**Status:** Allowlisted Vercel build and config are locally verified. Account linking and deployment are not performed.
 
 ## Active work
 
@@ -10,8 +10,10 @@
 - [x] Update repository overview, requirements, architecture, privacy context, audit, and handoff.
 - [x] Add `npm start` and `node serve.js` local preview commands.
 - [x] Animate the hero illustration, ambient light, project diagram, contact mark, and scroll reveals; preserve reduced-motion behavior.
+- [x] Add Vercel configuration and an explicit public-file build allowlist.
+- [x] Build the site and verify the generated artifact and local preview.
 - [ ] Add detailed LMS case-study content only after the owner supplies verified details or links.
-- [ ] Choose and configure hosting/domain if publication is requested.
+- [ ] Link this project to the owner's Vercel account and choose a production domain when ready to publish.
 
 ## Checks performed (2026-10-17)
 
@@ -19,6 +21,11 @@
 - PASS — `node --check serve.js`, `node --check app.js`, and `npm pkg get scripts.start` confirmed syntax and the start script.
 - PASS — bundled Python context sync and validation (see handoff for invocation).
 - PASS — bundled Playwright/Edge verified at 320, 390, 768, and 1440 px; no horizontal overflow or page errors. Language toggle, mobile menu/Escape, all 11 scroll reveals, active visual animations, and reduced-motion behavior passed.
+- PASS — `npm run build` generated `dist` with exactly `index.html`, `styles.css`, and `app.js`.
+- PASS — `npm run preview` on port 4175 served the page and assets; `AGENTS.md`, `context/`, `scripts/`, and `serve.js` paths returned 404. Browser title, language switch, and page load passed with no errors.
+- PASS — `package.json` and `vercel.json` parse as JSON; build, server, and frontend JavaScript syntax checks passed.
+- PASS — official Vercel config field choices checked against current Vercel build and `vercel.json` documentation. Actual platform deployment/header behavior remains unverified because the project is not linked to a Vercel account.
+- PASS — context sync, structural validation, and `context_sync.py --check`.
 - NOTE — first `npm start` attempt on default port 4173 reported `EADDRINUSE` because that port already had the earlier portfolio preview listening. The alternate port worked.
 
 - PASS — `& 'C:\Users\Jenren B. Datan\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' --check app.js`.
@@ -30,15 +37,15 @@
 - PASS — `scripts/context_sync.py` refreshed `context/AUTO_STATE.md` after context updates.
 - PASS — `scripts/context_validate.py` checks all required keeper files and headings.
 - NOT RUN — direct clipboard copy action, to avoid replacing the user's current clipboard contents.
-- NOT RUN — formal WCAG/screen-reader audit, production build, and deployment; no build system, test suite, or deployment target exists.
+- NOT RUN — formal WCAG/screen-reader audit and production deployment. The static build is validated below; deployment awaits account linking.
 - NOT RUN successfully — attached DOCX visual rendering, because packaged `render_docx.py` could not find LibreOffice `soffice.exe`. Prompt text was extracted and used.
 
 ## Blockers / unknowns
 
 - LMS project details, name, exact features, stack, screenshots, source/demo link, and additional verified experience were not supplied.
-- No hosting/domain choice or deployment authorization/configuration has been provided.
+- Vercel account/project is not linked and no production domain is chosen; deployment has not been performed.
 - The project folder has no `.git` metadata, so branch/status/diff history is unavailable.
 
 ## Next action
 
-Open the local preview and review the finished motion on the target device; share verified LMS details before expanding that case study.
+Connect/import this project directory in the owner's Vercel account and deploy when ready; use the Vercel CLI or dashboard. No environment variables are required.

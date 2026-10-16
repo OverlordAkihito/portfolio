@@ -37,3 +37,9 @@ Use a date and short heading. Include outcome, important files/decisions, checks
 - Animated the hero orbits and ambient light, added subtle movement to the LMS project diagram, about seal and contact orbit, and introduced scroll-entry reveals. Reduced-motion users skip reveal behavior and receive minimal CSS animation.
 - PASS: bundled Edge/Playwright responsive widths 320/390/768/1440, no horizontal overflow or page errors, bilingual toggle, mobile menu/Escape, all 11 reveals, and reduced-motion preference.
 - No dependencies, external animation assets, or backend behavior were added.
+
+## 2026-10-17 — Prepare a Vercel static deployment
+
+- Added Vercel framework/build/output settings and standard response security headers. The build copies only `index.html`, `styles.css`, and `app.js` to `dist`, avoiding publication of repo context and prompts.
+- Added `npm run build` and `npm run preview`. PASS: build output contains exactly the three allowlisted assets, built preview serves the page, and development/context paths return 404. Config JSON and Node syntax checks pass.
+- Verified configuration fields against Vercel's current official docs. No account linking or production deployment was performed.

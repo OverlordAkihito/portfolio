@@ -4,6 +4,8 @@
   "private": true,
   "description": "Local server for Jenren Renz B. Datan's portfolio",
   "scripts": {
-    "start": "node serve.js"
+    "start": "node serve.js",
+    "build": "node scripts/build-static.js",
+    "preview": "node serve.js --dist"
   }
 }

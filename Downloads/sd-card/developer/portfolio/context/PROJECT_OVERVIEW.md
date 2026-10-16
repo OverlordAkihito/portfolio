@@ -19,7 +19,7 @@ These are portfolio requirements, not claims of formal accessibility certificati
 - The site is a dependency-free static frontend made from `index.html`, `styles.css`, and `app.js`; `serve.js` provides a simple local preview server.
 - The supplied profile notes establish the displayed name, student status, Olongapo City location, full-stack web-development direction, an LMS built with AI assistance, and a contact email.
 - The LMS details, technologies, repository/demo URL, screenshots, education history, and additional project entries have not been supplied. The site avoids inventing them.
-- There is no site backend, authentication, analytics, external asset service, or deployment configuration in this repository.
+- There is no site backend, authentication, analytics, or external asset service. `vercel.json` and the allowlisted static build prepare hosting, but the project is not connected to an account or deployed.
 
 ## Product principles
 

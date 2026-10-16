@@ -7,13 +7,13 @@ Use this as a lightweight order for future changes; do not treat it as a feature
 3. **Experience design** — improve hierarchy, navigation, case-study storytelling, bilingual clarity, responsiveness, accessibility, and performance within the existing static setup.
 4. **Implementation** — preserve working interactions and avoid unnecessary dependencies. Add a backend only for a concrete feature that requires one.
 5. **Validation** — run JavaScript syntax and HTML parsing checks, test navigation/language/contact affordances, inspect desktop and mobile widths, and report any unverified behavior honestly.
-6. **Release** — select hosting/domain with the owner, confirm content and privacy implications, then document the actual deployment steps. Do not claim a deployment that was not performed.
+6. **Release** — connect the configured Vercel project with the owner, choose/confirm the production domain, verify output and privacy implications, then document the actual deployment. Do not claim a deployment that was not performed.
 
 ## Current known content gaps
 
 - Detailed LMS features, technologies, project images, code/demo links, and additional work examples.
 - Any confirmed resume/CV, social links, education history, or specific role preferences beyond the supplied profile notes.
-- Hosting/domain and production release process.
+- Production domain and release timing; Vercel is configured but not linked/deployed.
 
 ## Release checks
 

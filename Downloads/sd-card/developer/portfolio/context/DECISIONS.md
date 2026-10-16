@@ -46,7 +46,7 @@ This file stores durable decisions, not assumptions disguised as facts. Add an I
 
 ## App-specific technical decisions
 
-No external provider, deployment host, or domain has been selected. Add decisions only after repository evidence or an explicit owner choice exists.
+No external data provider or production domain has been selected. Vercel is the chosen static hosting target for the current portfolio after owner request; the account/project remains unlinked.
 
 ## D-007 — Keep the portfolio static and dependency-free
 
@@ -61,3 +61,10 @@ No external provider, deployment host, or domain has been selected. Add decision
 - **Decision:** Use lightweight CSS animation for the portfolio's orbital art, drifting project cards, ambient light, and small decorative marks; use IntersectionObserver for restrained scroll reveals. Respect `prefers-reduced-motion` and avoid an animation dependency.
 - **Rationale:** The portfolio should feel composed and alive without relying on stock effects or external animation libraries.
 - **Consequences:** Keep movement slow, low-amplitude, and limited to decorative artwork or entry transitions. Recheck mobile rendering and the reduced-motion path after changes.
+
+## D-009 — Publish only the portfolio allowlist
+
+- **Status:** Adopted (2026-10-17)
+- **Decision:** Build the deployable static site into `dist` from an explicit list of browser files; configure Vercel to serve only that output directory.
+- **Rationale:** The repository contains agent instructions, prompts, and working context that must not be exposed as public website assets.
+- **Consequences:** Update `scripts/build-static.js` whenever an intentional public asset is added. Verify the `dist` contents before deployment; Vercel account setup and production release remain owner actions.
