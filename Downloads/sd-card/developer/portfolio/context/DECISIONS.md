@@ -53,4 +53,11 @@ No external provider, deployment host, or domain has been selected. Add decision
 - **Status:** Adopted for the current portfolio implementation (2026-10-17)
 - **Decision:** Build the present portfolio with semantic HTML, CSS, and small browser-side JavaScript; do not add a framework or backend.
 - **Rationale:** The current scope is a public portfolio with anchor navigation, bilingual copy, and direct email contact. The opened workspace had no application stack or server integration to preserve.
-- **Consequences:** Preview is available through a static file server; hosting remains an owner decision. A future contact form or other server-dependent feature needs a separate architecture/security decision.
+- **Consequences:** Preview is available through `npm start` or `node serve.js`; hosting remains an owner decision. A future contact form or other server-dependent feature needs a separate architecture/security decision.
+
+## D-008 — Motion should serve the visual story
+
+- **Status:** Adopted (2026-10-17)
+- **Decision:** Use lightweight CSS animation for the portfolio's orbital art, drifting project cards, ambient light, and small decorative marks; use IntersectionObserver for restrained scroll reveals. Respect `prefers-reduced-motion` and avoid an animation dependency.
+- **Rationale:** The portfolio should feel composed and alive without relying on stock effects or external animation libraries.
+- **Consequences:** Keep movement slow, low-amplitude, and limited to decorative artwork or entry transitions. Recheck mobile rendering and the reduced-motion path after changes.

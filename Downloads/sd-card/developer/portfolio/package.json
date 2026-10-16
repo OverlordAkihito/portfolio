@@ -1,0 +1,9 @@
+{
+  "name": "renz-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local server for Jenren Renz B. Datan's portfolio",
+  "scripts": {
+    "start": "node serve.js"
+  }
+}

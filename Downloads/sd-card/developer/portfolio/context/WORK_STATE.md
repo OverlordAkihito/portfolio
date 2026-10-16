@@ -1,17 +1,25 @@
 # Work State
 
-**Current objective:** Build Renz's portfolio from the supplied UI/UX prompt and profile notes.  
-**Status:** Implementation complete; local browser and responsive checks passed. Publishing is not configured or performed.
+**Current objective:** Improve the portfolio with distinctive motion while preserving its existing visual direction and reduced-motion support.  
+**Status:** Motion system implemented and browser-checked. Portfolio remains local; publishing is not configured or performed.
 
 ## Active work
 
 - [x] Implement an immersive responsive portfolio with the supplied factual content.
 - [x] Add bilingual switching, responsive navigation, direct contact, copy-email behavior, and reduced-motion/accessibility basics.
 - [x] Update repository overview, requirements, architecture, privacy context, audit, and handoff.
+- [x] Add `npm start` and `node serve.js` local preview commands.
+- [x] Animate the hero illustration, ambient light, project diagram, contact mark, and scroll reveals; preserve reduced-motion behavior.
 - [ ] Add detailed LMS case-study content only after the owner supplies verified details or links.
 - [ ] Choose and configure hosting/domain if publication is requested.
 
 ## Checks performed (2026-10-17)
+
+- PASS — `npm start` launched the server with `PORT=4174`; `GET /` and `GET /styles.css` returned 200, missing files returned 404, an encoded traversal request returned 403, and POST returned 405.
+- PASS — `node --check serve.js`, `node --check app.js`, and `npm pkg get scripts.start` confirmed syntax and the start script.
+- PASS — bundled Python context sync and validation (see handoff for invocation).
+- PASS — bundled Playwright/Edge verified at 320, 390, 768, and 1440 px; no horizontal overflow or page errors. Language toggle, mobile menu/Escape, all 11 scroll reveals, active visual animations, and reduced-motion behavior passed.
+- NOTE — first `npm start` attempt on default port 4173 reported `EADDRINUSE` because that port already had the earlier portfolio preview listening. The alternate port worked.
 
 - PASS — `& 'C:\Users\Jenren B. Datan\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' --check app.js`.
 - PASS — bundled Python `HTMLParser` parsed `index.html` with no errors.
@@ -33,4 +41,4 @@
 
 ## Next action
 
-Get verified LMS details or a public demo/source link before expanding the project story. If the owner asks to publish, choose a host/domain and perform deployment as a separate authorized step.
+Open the local preview and review the finished motion on the target device; share verified LMS details before expanding that case study.

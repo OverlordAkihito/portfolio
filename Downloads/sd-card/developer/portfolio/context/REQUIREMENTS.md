@@ -15,6 +15,8 @@ Use `Implemented`, `Partial`, `UI-only`, `Missing`, or `Unable to verify`. An im
 | PORT-05 | Provide clear email contact through a mail link and copy action. | Implemented — `mailto:` links and clipboard/fallback logic in `index.html` and `app.js`; copy action is not separately verified in the browser. |
 | PORT-06 | Use semantic structure, keyboard-visible focus, accessible labels, and reduced-motion support. | Partial — landmarks, heading structure, focus styles, accessible menu labels, and `prefers-reduced-motion` treatment are present; no formal WCAG audit or screen-reader review was performed. |
 | PORT-07 | Keep the site static, lightweight, and free of unsupported external-service claims. | Implemented — no app dependencies, backend, analytics, or remote assets; local preference is the only browser-side persistence. |
+| PORT-08 | Provide a simple local launch command for previewing the portfolio. | Implemented — `npm start` and `node serve.js` launch the dependency-free Node static server at `http://127.0.0.1:4173` by default. |
+| PORT-09 | Use distinctive, purposeful motion in the portfolio art and page transitions, while honoring reduced-motion preferences. | Implemented — CSS animates the hero orbital illustration, atmosphere, project diagram, about seal, and contact mark; `app.js` reveals sections on entry when motion is allowed. Headless Edge verified active animations, all reveal targets, and the reduced-motion fallback. |
 
 ## Deferred content
 

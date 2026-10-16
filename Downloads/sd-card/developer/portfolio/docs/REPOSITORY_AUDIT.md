@@ -6,19 +6,19 @@
 
 ## Executive finding
 
-The repository now contains a dependency-free, single-page personal portfolio built with HTML, CSS, and browser-side JavaScript, alongside the original context-keeper files. It presents the supplied profile details and one functional LMS project, offers English/Filipino switching, responsive navigation, and email contact. The site has no backend, database, authentication, analytics, payment, or hosting integration. The LMS itself is not part of this repository and its deeper capabilities cannot be verified here.
+The repository now contains a dependency-free, single-page personal portfolio built with HTML, CSS, and browser-side JavaScript, alongside the original context-keeper files. It presents the supplied profile details and one functional LMS project, offers English/Filipino switching, responsive navigation, and email contact. Its artwork uses custom CSS motion, ambient background light, and scroll reveals with a reduced-motion fallback. A small Node static server is provided for local preview; the site has no application backend, database, authentication, analytics, payment, or hosting integration. The LMS itself is not part of this repository and its deeper capabilities cannot be verified here.
 
 ## Stack and structure
 
 | Area | Confirmed finding | Evidence |
 |---|---|---|
 | Languages | HTML, CSS, JavaScript for the site; Python for context scripts; Markdown/text for documentation. | `index.html`, `styles.css`, `app.js`, `scripts/*.py`. |
-| Frameworks/build | No framework, package manifest, bundler, or build step. | Root inventory has no `package.json` or app build config. |
+| Frameworks/build | No framework, bundler, or build step; `package.json` contains only the local start script and no dependencies. | `package.json`; no app build config. |
 | Entry points | `index.html`; it loads `styles.css` and deferred `app.js`. | `<link rel="stylesheet">`, `<script defer>` in `index.html`. |
 | Layout | One-page portfolio: hero, intro, selected work, development direction, about, contact, footer. | `index.html` sections `#main`, `#work`, `#about`, `#contact`. |
-| Styling | CSS custom properties, responsive breakpoints, focus treatment, reduced-motion preferences. | `styles.css`: `:root`, `@media (max-width: 1000px)`, `@media (max-width: 700px)`, `@media (prefers-reduced-motion: reduce)`. |
-| Browser behavior | Bilingual text/title/metadata, local language preference, responsive menu open/close/Escape, email copy with fallback. | `app.js`: `setLanguage`, `setMenu`, `copyButton` handler. |
-| Data/backend/auth | No application server, API, database, schema, sign-in, or authorization boundary. Language preference is the only persisted site value, in local storage. | Complete project inventory; `app.js` accesses only `localStorage` for language. |
+| Styling | CSS custom properties, responsive breakpoints, focus treatment, reduced-motion preferences, animated art/ambient backgrounds, and small scroll-entry transitions. | `styles.css`: `:root`, `@keyframes`, responsive breakpoints, and reduced-motion media query. |
+| Browser behavior | Bilingual text/title/metadata, local language preference, responsive menu open/close/Escape, email copy with fallback, and motion-aware section reveals. | `app.js`: `setLanguage`, `setMenu`, copy handler, `IntersectionObserver`. |
+| Data/backend/auth | A local Node static-file server is provided, but there is no application API, database, schema, sign-in, or authorization boundary. Language preference is the only persisted site value, in local storage. | `serve.js`, `package.json`, and `app.js`. |
 | External assets/services | No remote fonts, image assets, tracking, analytics, or integration. Email actions use `mailto:`. | `index.html`, `styles.css`, `app.js`. |
 | Git | No `.git` directory is present; branch/commit and clean-diff status cannot be determined. | `Test-Path .git` returned false in the workspace. |
 
@@ -31,6 +31,7 @@ The repository now contains a dependency-free, single-page personal portfolio bu
 | English/Filipino switching | Implemented | `app.js:setLanguage` updates tagged page copy, document language/title/metadata, accessible names, and local preference. Browser interaction verified both directions. |
 | Responsive navigation | Implemented | `app.js:setMenu` supports open/close, link selection, Escape, and resize; `styles.css` provides the mobile menu treatment. Browser interaction verified at 390px. |
 | Responsive layout | Implemented | Headless Edge reported no horizontal overflow at 320, 390, 768, and 1440 CSS-pixel widths. Full-page desktop and mobile screenshots were visually inspected. |
+| Purposeful motion | Implemented | Headless Edge observed active orbital, ambient, and object animations; all 11 reveal targets appeared after scrolling. The reduced-motion context did not enable reveal mode and CSS reduced animation duration. |
 | Email link and copy | Partial | `mailto:` links and clipboard/fallback code exist. The copy action itself was not clicked during verification to avoid overwriting the user's clipboard. |
 | Accessibility | Partial | Semantic landmarks/headings, skip link, focus styles, menu labels, live copy feedback, and reduced-motion CSS exist. No formal WCAG or screen-reader audit was performed. |
 | Hosting/deployment | Unable to verify | No production host, domain, or deployment configuration was supplied or used. |
@@ -64,7 +65,7 @@ The site has no dedicated unit-test suite, lint configuration, or build tool. No
 ## Dependencies and configuration
 
 - The site itself has no package dependencies or environment variables.
-- Local preview can use `python -m http.server 4173`; Python is a preview option, not a runtime requirement after static hosting.
+- Local preview: `npm start` or `node serve.js` opens `http://127.0.0.1:4173`; set `PORT` if that port is occupied. Node.js is required; no package installation is needed.
 - Production hosting/domain remain unconfigured.
 
 ## Remaining content unknowns

@@ -4,19 +4,22 @@ This workspace now contains a lightweight, bilingual developer portfolio and the
 
 ## Run the portfolio locally
 
-From this folder, start any static file server. With Python 3:
+From this folder, start the local Node server using either command:
 
-```bash
-python -m http.server 4173
+```sh
+npm start
+# or: node serve.js
 ```
 
-Then open `http://localhost:4173`. You can also open `index.html` directly, though clipboard behavior works best from localhost or a deployed HTTPS site.
+Then open `http://127.0.0.1:4173`. To use a different port, set `PORT` before starting (for example, PowerShell: `$env:PORT=5000; npm start`). The server binds to `127.0.0.1` by default and serves files from this project folder. You can also open `index.html` directly, though clipboard behavior works best from localhost or a deployed HTTPS site.
 
 ## Portfolio files
 
 - `index.html` — semantic page structure and portfolio copy.
-- `styles.css` — color tokens, layouts, responsive styling, and reduced-motion treatment.
-- `app.js` — English/Filipino switching, responsive navigation, and email copying.
+- `styles.css` — color tokens, responsive styling, ambient backgrounds, animated artwork, scroll-reveal transitions, and reduced-motion treatment.
+- `app.js` — English/Filipino switching, responsive navigation, email copying, and motion-aware reveal behavior.
+- `serve.js` — dependency-free local static file server.
+- `package.json` — `npm start` command; no install step is needed.
 
 The portfolio content is based on the supplied profile notes. The LMS is described only as a functional learning management system made with AI assistance; the source notes do not provide its feature list, public demo, code link, or screenshots.
 

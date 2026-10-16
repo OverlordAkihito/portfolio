@@ -81,4 +81,24 @@
   currentYear.textContent = String(new Date().getFullYear());
   document.querySelector('.portfolio-year').textContent = currentYear.textContent;
   setLanguage(language);
+
+  const revealTargets = document.querySelectorAll(
+    '.hero-copy, .hero-art, .band-inner > p, .section-heading, .project-card, .direction-heading, .direction-row, .about-copy, .contact-section h2'
+  );
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('motion-ready');
+    revealTargets.forEach((element, index) => {
+      element.dataset.reveal = '';
+      element.style.setProperty('--reveal-delay', `${(index % 4) * 85}ms`);
+    });
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
 })();

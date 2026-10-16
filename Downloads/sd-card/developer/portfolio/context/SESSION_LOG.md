@@ -26,3 +26,14 @@ Use a date and short heading. Include outcome, important files/decisions, checks
 - Updated project context and audit to match the current site; no app dependencies, backend, tracking, or hosting were added. Added D-007 for the static-site choice.
 - PASS: syntax/parser checks, Edge responsive and interaction checks at 320/390/768/1440 CSS px, visual desktop/mobile review, context sync, and context validation. DOCX render was unavailable because LibreOffice was missing; prompt text extraction succeeded.
 - Remaining: verified LMS case-study details and any future hosting/domain choice.
+
+## 2026-10-17 — Add a simple local start command
+
+- Added a dependency-free Node static server and `npm start` script, plus README instructions. It serves the portfolio at `http://127.0.0.1:4173` by default; Node.js is required but no `npm install` is needed.
+- PASS: Node syntax checks; `npm start` at port 4174; HTTP root/CSS 200, missing file 404, encoded traversal 403, POST 405. Port 4173 was occupied by an earlier preview. Context sync and validation passed using bundled Python (plain `python` is not on PATH).
+
+## 2026-10-17 — Add purposeful portfolio motion
+
+- Animated the hero orbits and ambient light, added subtle movement to the LMS project diagram, about seal and contact orbit, and introduced scroll-entry reveals. Reduced-motion users skip reveal behavior and receive minimal CSS animation.
+- PASS: bundled Edge/Playwright responsive widths 320/390/768/1440, no horizontal overflow or page errors, bilingual toggle, mobile menu/Escape, all 11 reveals, and reduced-motion preference.
+- No dependencies, external animation assets, or backend behavior were added.
